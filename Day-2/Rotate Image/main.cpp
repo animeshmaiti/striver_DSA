@@ -18,31 +18,27 @@ public:
             result.push_back(colToRow);
             colToRow.clear();
         }
-        for (auto it : result)
-        {
-            cout << "{";
-            for (auto it2 : it)
-            {
-                cout << it2 << ",";
-            }
-            cout << "},";
+        int i=0;
+        for(auto it:result){
+            matrix[i]=it;
+            i++;           
         }
     }
 };
 
 int main()
 {
-    vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9},{1,1,1}};
+    vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     Solution sol;
     sol.rotate(matrix);
-    // for (auto it : matrix)
-    // {
-    //     cout << "{";
-    //     for (auto it2 : it)
-    //     {
-    //         cout << it2 << ",";
-    //     }
-    //     cout << "},";
-    // }
+    for (auto it : matrix)
+    {
+        cout << "{";
+        for (auto it2 : it)
+        {
+            cout << it2 << ",";
+        }
+        cout << "},";
+    }
     return 0;
 }
