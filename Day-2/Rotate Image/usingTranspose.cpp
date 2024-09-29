@@ -1,28 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// space O(n^2)
 class Solution
 {
 public:
     void rotate(vector<vector<int>> &matrix)
     {
-        vector<int> colToRow;
-        vector<vector<int>> result;
         int row = matrix.size(), col = matrix[0].size();
-        for (int j = 0; j < col; j++)
+        for (int i = 0; i < row-1; i++)
         {
-            for (int i = row - 1; i >= 0; i--)
+            for (int j = i+1; j < row; j++)
             {
-                colToRow.push_back(matrix[i][j]);
+                swap(matrix[i][j],matrix[j][i]);
             }
-            result.push_back(colToRow);
-            colToRow.clear();
         }
-        int i=0;
-        for(auto it:result){
-            matrix[i]=it;
-            i++;           
+        for (int i = 0; i < row; i++)
+        {
+            reverse(matrix[i].begin(),matrix[i].end());
         }
     }
 };
